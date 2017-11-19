@@ -1,0 +1,79 @@
+		<form class="form-group">	
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>OWGR</th>
+			<th>Golfer</th>
+		</tr>
+	</thead>
+	<tbody>	
+			<tr>
+				<td>1 - 5</td>
+				<td>
+					<select name="Golfer 1" id="golfer1" class="golfers form-control" style="width: 200px;">
+						<option value="Select Golfer">Select Golfer</option>
+						{{#each golfers}}
+						<option value="{{name}}">{{currentRank}}. {{name}}</option>
+						{{/each}}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>6 - 10</td>
+				<td>
+					<select name="Golfer 2" id="golfer2" class="form-control" style="width: 200px;">
+						<option value="Select Golfer">Select Golfer</option>
+						{{#each golfers}}
+						<option value="{{name}}">{{currentRank}}. {{name}}</option>
+						{{/each}}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>11 - 20</td>
+				<td>
+					<select name="Golfer 3" id="golfer3" class="form-control" style="width: 200px;">
+						<option value="Select Golfer">Select Golfer</option>
+						{{#each golfers}}
+						<option value="{{name}}">{{currentRank}}. {{name}}</option>
+						{{/each}}
+					</select>
+				</td>	
+			</tr>
+					<tr>
+				<td>11 - 20</td>
+				<td>
+					<select name="Golfer 4" id="golfer4" class="form-control" style="width: 200px;">
+						<option value="Select Golfer">Select Golfer</option>
+						{{#each golfers}}
+						<option value="{{name}}">{{currentRank}}. {{name}}</option>
+						{{/each}}
+					</select>
+				</td>
+			</tr>
+					<tr>
+				<td>21 - 50</td>
+				<td>
+					<select name="Golfer 5" id="golfer5" class="form-control" style="width: 200px;">
+						<option value="Select Golfer">Select Golfer</option>
+						{{#each golfers}}
+						<option value="{{name}}">{{currentRank}}. {{name}}</option>
+						{{/each}}
+					</select>
+				</td>
+			</tr>
+					<tr>
+				<td>51 +</td>
+				<td>
+					<select name="Golfer 6" id="golfer6" class="form-control" style="width: 200px;">
+						<option value="Select Golfer">Select Golfer</option>
+						{{#each golfers}}
+						<option value="{{name}}">{{currentRank}}. {{name}}</option>
+						{{/each}}
+					</select>
+				</td>	
+			</tr>
+	</tbody>
+</table>
+			<button type="submit" class="btn btn-default" id="teamSubmit" style="float: right; margin: 0px 40px;">Submit Team</button>
+		</form>

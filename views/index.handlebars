@@ -1,0 +1,32 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Pos</th>
+			<th>Player Name</th>
+			<th>Current<br>Round</th>
+			<th>Thru</th>
+			<th>R1</th>
+			<th>R2</th>
+			<th>R3</th>
+			<th>R4</th>
+			<th>Total</th>
+			<th>Overall</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each golfers}}
+		<tr>
+			<td>{{position}}</td>
+			<td>{{golfer}}</td>
+			<td>{{currentRound}}</td>
+			<td>{{thru}}</td>
+			<td>{{round1}}</td>
+			<td>{{round2}}</td>
+			<td>{{round3}}</td>
+			<td>{{round4}}</td>
+			<td>{{total}}</td>
+			<td>{{overall}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

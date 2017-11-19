@@ -1,0 +1,23 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>This<br>Week</th>
+			<th>Last<br>Week</th>
+			<th>Country</th>
+			<th>Golfer Name</th>
+			<th>YTD<br>Events</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		{{#each owgr}}
+		<tr>
+			<td>{{currentRank}}</td>
+			<td>{{lastWeekRank}}</td>
+			<td>{{country}}</td>
+			<td>{{name}}</td>
+			<td>{{events}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
