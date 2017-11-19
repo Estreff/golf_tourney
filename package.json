@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.jsheroku addons:create mongolab"
+    "start": "node test.js heroku addons:create mongolab"
   },
   "repository": {
     "type": "git",
