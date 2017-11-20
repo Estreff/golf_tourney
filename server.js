@@ -9,8 +9,9 @@ const request = require('request');
 const logger = require('morgan')
 const axios = require('axios');
 const PORT = process.env.PORT || 8080;
-const db = mongoose.connection;
 
+app.use(express.static("public"));
+const models = require('./models'); 
 
 const databaseUri = 'mongodb://localhost/majors';
 
@@ -19,6 +20,8 @@ if(process.env.MONGODB_URI) {
 } else {
 	mongoose.connect(databaseUri);
 }
+
+const db = mongoose.connection;
 
 db.on('error', (err) => console.log('Mongoose Error: ', err));
 db.once('open', () => console.log('Mogoose Connection Successful!!'));
@@ -37,8 +40,6 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-app.use(express.static("public"));
-const models = require('./models'); 
 
 app.get('/', (req, res) => {
 	res.redirect('/PGAleaderboard');
