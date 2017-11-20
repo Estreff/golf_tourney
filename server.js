@@ -40,6 +40,9 @@ app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 const models = require('./models'); 
 
+app.get('/', (req, res) => {
+	res.redirect('/PGAleaderboard');
+});
 
 app.get('/owgr', function(req, res) {
 	models.OWGR
@@ -64,7 +67,6 @@ app.get("/owgr/update", function(req, res) {
 	axios.get("http://www.owgr.com/ranking?pageNo=1&pageSize=500&country=All").then(function(response) {
 		// Then, we load that into cheerio and save it to $ for a shorthand selector
 		var $ = cheerio.load(response.data);
-		
 		
 	  $('div.table_container tbody tr').each(function(i, element) {
 		  var rankings = {};
