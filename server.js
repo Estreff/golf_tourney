@@ -11,7 +11,7 @@ const axios = require('axios');
 const PORT = process.env.PORT || 8080;
 
 app.use(express.static("public"));
-const models = require('./models+++++'); 
+const models = require('./models'); 
 
 const databaseUri = 'mongodb://localhost/majors';
 
