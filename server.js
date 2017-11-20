@@ -11,7 +11,7 @@ const axios = require('axios');
 const PORT = process.env.PORT || 8080;
 
 app.use(express.static("public"));
-const models = require('./models'); 
+const models = require('./models+++++'); 
 
 const databaseUri = 'mongodb://localhost/majors';
 
@@ -29,7 +29,7 @@ db.once('open', () => console.log('Mogoose Connection Successful!!'));
 mongoose.Promise = Promise;
 mongoose.set('debug', true);
 
-var mdb = mongo('majors', ['scorecards', 'owgrs', 'teams']);
+var mdb = mongo('majors', ['scorecards', 'owgrs', 'entires']);
 
 app.use(logger("dev"));
 app.use(bodyParser.json());
