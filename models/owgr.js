@@ -1,17 +1,14 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-	var OWGRSchema = new Schema({
-		player_name: {
-			type: String,
-			// required: true,
-			unique: true
-		},
-		rank: {
-			type: Number
-			// required: true
-        },       
-    });
+const OWGRSchema = new Schema({
+	currentRank: Number,
+	lastWeekRank: Number,
+	country: String,
+	name: String,
+	events: Number
+	   
+});
 
 var OWGR = mongoose.model('OWGR', OWGRSchema);
 

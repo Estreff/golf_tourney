@@ -1,22 +1,25 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
    
-    var ScorecardSchema = new Schema ({
-        player: {
+    var ScorecardSchema =new Schema ({
+        golfer: {
 			type: String
 			// required: true,
 			// unique: true
         },
         position: {
-            type: Number
+            type: String
             // required: true
         },
         overall: {
 			type: String
 			// required: true
-        },
+		},
+		teeTime: {
+			type: String
+		},
         thru: {
-			type: Number
+			type: String
 			// required: true
         },
         round_score: {
