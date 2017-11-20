@@ -11,7 +11,6 @@ const axios = require('axios');
 const PORT = process.env.PORT || 8080;
 const db = mongoose.connection;
 
-var mdb = mongo('majors', ['scorecards', 'owgrs', 'teams']);
 
 const databaseUri = 'mongodb://localhost/majors';
 
@@ -27,6 +26,8 @@ db.once('open', () => console.log('Mogoose Connection Successful!!'));
 mongoose.Promise = Promise;
 mongoose.set('debug', true);
 
+var mdb = mongo('majors', ['scorecards', 'owgrs', 'teams']);
+
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,13 +39,9 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static("public"));
 const models = require('./models'); 
-// const owgr = require('./models/owgr.js');
-
-
-
 
 app.get('/', (req, res) => {
-    res.render('teams');
+    res.render('index');
 });
 
 app.get('/owgr', function(req, res) {

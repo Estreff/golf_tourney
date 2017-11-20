@@ -1,7 +1,7 @@
 {{#each golfers}}
-<div class="entry" style="margin: 20px 40px; border: 2px solid gray; border-radius: 10px";>
-	<table class="table table-striped">
-		<thead class="header-primary">
+<div class="entry" style="margin: 40px 40px; border: 2px solid gray; border-radius: 10px";>
+	<table class="table table-striped table-bordered">
+		<thead class="table-info">
 			<tr>
 				<th>OWGR</th>
 				<th>Golfer</th>
@@ -86,7 +86,7 @@
 						<button class="btn btn-danger invisible" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
 					</td>
 				</tr>
-						<tr>
+				<tr>
 					<td>51 +</td>
 					<td>{{golfer6}}</td>
 					<td>{{round1}}</td>
@@ -99,6 +99,16 @@
 						<button class="btn btn-warning edit invisible" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
 						<button class="btn btn-danger invisible" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
 					</td>		
+				</tr>
+				<tr class="bg-primary ">
+					<td><b>Totals</b></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="text-center"></td>		
 				</tr>
 		</tbody>
 
