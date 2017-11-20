@@ -3,9 +3,9 @@ var Schema = mongoose.Schema;
    
     var ScorecardSchema =new Schema ({
         golfer: {
-			type: String
+			type: String,
 			// required: true,
-			// unique: true
+			unique: true
         },
         position: {
             type: String
