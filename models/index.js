@@ -1,5 +1,5 @@
 module.exports = {
-    Scorecard: require("./Scorecard"),
-    OWGR: require("./OWGR"),
-    Entry: require('./Entry')
+    Scorecard: require("./leaderboard"),
+    OWGR: require("./owgr"),
+    Entry: require('./entry')
 };
