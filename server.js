@@ -40,24 +40,21 @@ app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 const models = require('./models'); 
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
 
 app.get('/owgr', function(req, res) {
 	models.OWGR
     .find({})
     .then(function(rank) {
 		
-      // If we were able to successfully find Articles, send them back to the client
+		// If we were able to successfully find Articles, send them back to the client
         var hbsObject = {
             owgr: rank
         };        
         res.render('owgr', hbsObject);
     })
     .catch(function(err) {
-      // If an error occurred, send it to the client
-      res.json(err);
+		// If an error occurred, send it to the client
+		res.json(err);
     });
 });
 
@@ -65,41 +62,41 @@ app.get("/owgr/update", function(req, res) {
 	mdb.owgrs.remove({});
 	// First, we grab the body of the html with request
 	axios.get("http://www.owgr.com/ranking?pageNo=1&pageSize=500&country=All").then(function(response) {
-	  // Then, we load that into cheerio and save it to $ for a shorthand selector
-	  var $ = cheerio.load(response.data);
-
-	  
+		// Then, we load that into cheerio and save it to $ for a shorthand selector
+		var $ = cheerio.load(response.data);
+		
+		
 	  $('div.table_container tbody tr').each(function(i, element) {
-			var rankings = {};
-			  
-			rankings.currentRank = $(this).find('td:nth-child(1)').text().trim();
-			rankings.lastWeekRank = $(this).find('td:nth-child(2)').text().trim();
+		  var rankings = {};
+		  
+		  rankings.currentRank = $(this).find('td:nth-child(1)').text().trim();
+		  rankings.lastWeekRank = $(this).find('td:nth-child(2)').text().trim();
 			rankings.country = $(this).find('td.ctry').children().attr('title').trim();
 			rankings.name = $(this).find('td.name').text().trim();
 			rankings.events = $(this).find('td:nth-child(11)').text().trim();
-		  
-  
+			
+			
 		// Create a new Article using the `result` object built from scraping
 		models.OWGR
-		  .create(rankings)
-		  .then(function(dbRank) {
+		.create(rankings)
+		.then(function(dbRank) {
 			// If we were able to successfully scrape and save an Article, send a message to the client
 			res.redirect("/owgr");
-		  })
-		  .catch(function(err) {
+		})
+		.catch(function(err) {
 			// If an error occurred, send it to the client
 			res.json(err);
-		  });
-	  });
+		});
 	});
-  });
+	});
+});
 
 
 app.get('/PGAleaderboard', (req, res) => {
-    models.Scorecard.find({}, (err, posts) => {
-        //  res.json(posts));
+	models.Scorecard.find({}, (err, posts) => {
+		//  res.json(posts));
         var hbsObject = {
-            golfers: posts
+			golfers: posts
         };
         
         res.render('index', hbsObject);
@@ -108,13 +105,13 @@ app.get('/PGAleaderboard', (req, res) => {
 
 app.get('/PGAleaderboard/update', (req, res) => {
     mdb.scorecards.remove({});
-	        axios.get("http://www.golfchannel.com/tours/pga-tour").then(function(response) {
+	axios.get("http://www.golfchannel.com/tours/pga-tour").then(function(response) {
 		
-				var $ = cheerio.load(response.data);
+		var $ = cheerio.load(response.data);
 
         
-                $('tr.playerRow').each(function(i, element) {
-            
+		$('tr.playerRow').each(function(i, element) {
+			
                         var golferScrape = $(element).find('a.pName').text().trim().replace(' *', '').split(', ');
                         var firstName = golferScrape[1];
                         var lastName = golferScrape[0];
@@ -122,7 +119,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
                         var position = $(element).find('td:nth-child(2)').text().trim();
                         var overall = $(element).find('td:nth-child(5)').text().trim();
                         var teeTime = $(element).find('td:nth-child(6)').attr('colspan');
-                            console.log('Tee Time: ', teeTime);
+						console.log('Tee Time: ', teeTime);
                         var thru = $(element).find('td:nth-child(6)').text().trim();
                         var currentRound = $(element).find('td:nth-child(7)').text().trim();
                         var R1 = $(element).find('td:nth-child(8)').text().trim();
@@ -145,63 +142,65 @@ app.get('/PGAleaderboard/update', (req, res) => {
                                 total: total
                             };
                 
-            console.log(JSON.stringify(data, null, 2));
-			models.Scorecard.create(data)
+							console.log(JSON.stringify(data, null, 2));
+							models.Scorecard.create(data)
 			.then(function(dbScorecard) {
-					
-					res.redirect('/PGAleaderboard');
+				
+				res.redirect('/PGAleaderboard');
 				});
 			})
-				.catch(function(err) {
+			.catch(function(err) {
 				// If an error occurred, send it to the client
 				res.json(err);
 			});
         });	
-});
-
-
+	});
+	
+	
     app.get('/teamCreate', (req, res) => {
-        models.OWGR.find({}, (err, posts) => {
+		models.OWGR.find({}, (err, posts) => {
             //  res.json(posts));
             var hbsObject = {
-                golfers: posts,
+				golfers: posts,
             };    
             res.render('teamCreate', hbsObject);    
         });
-
+		
     });
-
+	
     app.get('/team', (req, res) => {
-        models.Entry.find({}, (err, team) => {
-            //  res.json(posts));
+		models.Entry.find({}, (err, team) => {
+			//  res.json(posts));
             var hbsObject = {
-                golfers: team,
+				golfers: team,
 			};    
 			console.log(hbsObject);
             res.render('teams', hbsObject);    
         });        
 	});
 	
-
+	
     app.post('/team/new', (req, res) => {
         var team = {
-            golfer1: req.body.golfer1,
+			golfer1: req.body.golfer1,
             golfer2: req.body.golfer2,
             golfer3: req.body.golfer3,
             golfer4: req.body.golfer4,
             golfer5: req.body.golfer5,
             golfer6: req.body.golfer6,
         }
-
+		
 		models.Entry.create(team)
 		.then(function(dbEntry) {
 			res.redirect('/team');     
 		});
-    
+		
     });
-
+	
+	app.get('/*', (req, res) => {
+		res.redirect('/PGAleaderboard');
+	});
     
-  
-app.listen(PORT, () => {
-    console.log('App listening on PORT ' + PORT);
-});
+	app.listen(PORT, () => {
+		console.log('App listening on PORT ' + PORT);
+	});
