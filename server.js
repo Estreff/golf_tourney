@@ -102,7 +102,7 @@ app.get('/PGAleaderboard', (req, res) => {
 			golfers: posts
         };
         
-        res.render('index', hbsObject);
+		res.render('index', hbsObject);
     });
 });
 
