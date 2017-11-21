@@ -45,7 +45,11 @@ var Schema = mongoose.Schema;
         total: {
 			type: Number
 			// required: true
-		}
+		},
+		positionCalc: {
+            type: Number
+            // required: true
+        }
     });
 
     var Scorecard = mongoose.model('Scorecard', ScorecardSchema);

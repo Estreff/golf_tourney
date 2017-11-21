@@ -99,6 +99,7 @@ app.get("/owgr/update", function(req, res) {
 app.get('/PGAleaderboard', function(req, res) {
 	models.Scorecard
 	.find({})
+	.sort('positionCalc')
     .then(function(leaderboard) {
 		
         var hbsObject = {
@@ -129,7 +130,8 @@ app.get('/PGAleaderboard/update', (req, res) => {
                         var firstName = golferScrape[1];
                         var lastName = golferScrape[0];
                         var golfer = `${firstName} ${lastName}`
-                        var position = $(element).find('td:nth-child(2)').text().trim();
+						var position = $(element).find('td:nth-child(2)').text().trim();
+						var positionCalc = $(element).find('td:nth-child(2)').text().trim().replace('CUT', 999).replace('WD', 999).replace('T', '');
                         var overall = $(element).find('td:nth-child(5)').text().trim();
                         var teeTime = $(element).find('td:nth-child(6)').attr('colspan');
 						console.log('Tee Time: ', teeTime);
@@ -152,7 +154,8 @@ app.get('/PGAleaderboard/update', (req, res) => {
                                 round2: R2,
                                 round3: R3,
                                 round4: R4,
-                                total: total
+								total: total,
+								positionCalc: positionCalc
                             };
                 
 							console.log(JSON.stringify(data, null, 2));
