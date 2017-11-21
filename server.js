@@ -95,14 +95,20 @@ app.get("/owgr/update", function(req, res) {
 });
 
 
-app.get('/PGAleaderboard', (req, res) => {
-	models.Scorecard.find({}, (err, posts) => {
-		//  res.json(posts));
+app.get('/PGAleaderboard', function(req, res) {
+	models.Scorecard
+    .find({})
+    .then(function(leaderboard) {
+		
         var hbsObject = {
-			golfers: posts
+			golfers: leaderboard
         };
         
         res.render('index', hbsObject);
+    })
+    .catch(function(err) {
+
+		res.json(err);
     });
 });
 
@@ -118,7 +124,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
         
 		$('tr.playerRow').each(function(i, element) {
 			
-                        var golferScrape = $(element).find('a.pName').text().trim().replace(' *', '').split(', ');
+                        var golferScrape = $(element).find('a.pName').text().trim().replace(' *', '').replace(' (a)', '').split(', ');
                         var firstName = golferScrape[1];
                         var lastName = golferScrape[0];
                         var golfer = `${firstName} ${lastName}`
