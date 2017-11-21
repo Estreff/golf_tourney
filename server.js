@@ -29,7 +29,7 @@ db.once('open', () => console.log('Mogoose Connection Successful!!'));
 mongoose.Promise = Promise;
 mongoose.set('debug', true);
 
-var mdb = mongo('majors', ['scorecards', 'owgrs', 'entires']);
+// var mdb = mongo('majors', ['scorecards', 'owgrs', 'entries']);
 
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -63,7 +63,7 @@ app.get('/owgr', function(req, res) {
 });
 
 app.get("/owgr/update", function(req, res) {
-	mdb.owgrs.remove({});
+	// mdb.owgrs.remove({});
 	// First, we grab the body of the html with request
 	axios.get("http://www.owgr.com/ranking?pageNo=1&pageSize=500&country=All").then(function(response) {
 		// Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -107,7 +107,7 @@ app.get('/PGAleaderboard', (req, res) => {
 });
 
 app.get('/PGAleaderboard/update', (req, res) => {
-    mdb.scorecards.remove({});
+    // mdb.scorecards.remove({});
 	axios.get("http://www.golfchannel.com/tours/pga-tour").then(function(response) {
 		
 		var $ = cheerio.load(response.data);
