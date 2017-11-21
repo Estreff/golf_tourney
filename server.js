@@ -98,7 +98,7 @@ app.get("/owgr/update", function(req, res) {
 app.get('/PGAleaderboard', function(req, res) {
 	models.Scorecard
 	.find({})
-	.sort({'R3': -1})
+	.sort({'R3': 1})
 	// .where('position').ne('CUT')
 	// .where('position').ne('WD')
     .then(function(leaderboard) {
