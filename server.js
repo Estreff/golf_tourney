@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 app.get('/owgr', function(req, res) {
 	models.OWGR
 	.find({})
-	.sort(currentRank)
+	.sort('currentRank')
     .then(function(rank) {
 		
 		// If we were able to successfully find Articles, send them back to the client
