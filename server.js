@@ -175,13 +175,19 @@ app.get('/PGAleaderboard/update', (req, res) => {
 	
 	
     app.get('/teamCreate', (req, res) => {
-		models.OWGR.find({}, (err, posts) => {
+		models.OWGR
+		.find({})
+		.sort('currentRank')
+		.then(function(posts) {
             //  res.json(posts));
             var hbsObject = {
 				golfers: posts,
             };    
             res.render('teamCreate', hbsObject);    
-        });
+		})
+		.catch(function(err) {			
+			res.json(err);
+		});
 		
     });
 	
