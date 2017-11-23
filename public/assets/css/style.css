@@ -1,3 +1,32 @@
 .btn {
     margin: 0px 5px;
 }
+
+.card {
+    margin: 40px;
+    border: 3px solid #868e96;
+    border-radius: 10px;
+}
+
+.card-header {
+    background-color: #868e96;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+
+    padding: 20px;
+}
+
+.card-block {
+    padding: 40px;
+}
+
+.col-6 {
+    padding: 0px;
+}
+
+.form-group.row {
+    color: #868e96;
+    font-size: 20px;
+    border-bottom: 1px solid #868e96;
+}
