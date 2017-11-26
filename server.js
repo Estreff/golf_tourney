@@ -229,11 +229,86 @@ app.get('/PGAleaderboard/update', (req, res) => {
 		console.log('Rank 5 outside find: ', rank5);
 		console.log('Rank 6 outside find: ', rank6);
 
-		models.Scorecard.find({golfer:golfer1
-		}, (err, golfer1Scores) => {
-			console.log('Rank 1 inside find: ', rank1);
-			console.log("golfer 1 Scores: ", golfer1Scores);
-			console.log('Golfer Round 1: ', golfer1Scores[0].round1);
+		// models.Scorecard.find({ $or: [ {golfer:golfer1}, {golfer:golfer2}, {golfer:golfer3}, {golfer:golfer4}, {golfer:golfer5}, {golfer:golfer6} ]
+		// }, (err, golfer1Scores) => {
+		// 	console.log('Rank 1 inside find: ', rank1);
+		// 	console.log("golfer 1 Scores: ", golfer1Scores);
+		// 	console.log('Golfer 1 Round 1: ', golfer1Scores[0].round1);
+		// 	console.log('Golfer 2 Round 1: ', golfer1Scores[1].round1);
+		// 	console.log('Golfer 3 Round 1: ', golfer1Scores[2].round1);
+		// 	console.log('Golfer 4 Round 1: ', golfer1Scores[3].round1);
+		// 	console.log('Golfer 5 Round 1: ', golfer1Scores[4].round1);
+		// 	console.log('Golfer 6 Round 1: ', golfer1Scores[5].round1);
+		// 	models.Entry.update({},{ $set: {
+		// 		golfer1:{
+		// 			name: golfer1Scores[0].golfer,
+		// 			rank: rank1,
+		// 			position: golfer1Scores[0].position,
+		// 			round1: golfer1Scores[0].round1,
+		// 			round2: golfer1Scores[0].round2,
+		// 			round3: golfer1Scores[0].round3,
+		// 			round4: golfer1Scores[0].round4,
+		// 			total: golfer1Scores[0].total
+		// 		},
+		// 		golfer2:{
+		// 			name: golfer1Scores[1].golfer,
+		// 			rank: rank2,
+		// 			position: golfer1Scores[1].position,
+		// 			round1: golfer1Scores[1].round1,
+		// 			round2: golfer1Scores[1].round2,
+		// 			round3: golfer1Scores[1].round3,
+		// 			round4: golfer1Scores[1].round4,
+		// 			total: golfer1Scores[1].total
+		// 		},
+		// 		golfer3:{
+		// 			name: golfer1Scores[2].golfer,
+		// 			rank: rank3,
+		// 			position: golfer1Scores[2].position,
+		// 			round1: golfer1Scores[2].round1,
+		// 			round2: golfer1Scores[2].round2,
+		// 			round3: golfer1Scores[2].round3,
+		// 			round4: golfer1Scores[2].round4,
+		// 			total: golfer1Scores[2].total
+		// 		},
+		// 		golfer4:{
+		// 			name: golfer1Scores[3].golfer,
+		// 			rank: rank4,
+		// 			position: golfer1Scores[3].position,
+		// 			round1: golfer1Scores[3].round1,
+		// 			round2: golfer1Scores[3].round2,
+		// 			round3: golfer1Scores[3].round3,
+		// 			round4: golfer1Scores[3].round4,
+		// 			total: golfer1Scores[3].total
+		// 		},
+		// 		golfer5:{
+		// 			name: golfer1Scores[4].golfer,
+		// 			rank: rank5,
+		// 			position: golfer1Scores[4].position,
+		// 			round1: golfer1Scores[4].round1,
+		// 			round2: golfer1Scores[4].round2,
+		// 			round3: golfer1Scores[4].round3,
+		// 			round4: golfer1Scores[4].round4,
+		// 			total: golfer1Scores[4].total
+		// 		},
+		// 		golfer6:{
+		// 			name: golfer1Scores[5].golfer,
+		// 			rank: rank6,
+		// 			position: golfer1Scores[5].position,
+		// 			round1: golfer1Scores[5].round1,
+		// 			round2: golfer1Scores[5].round2,
+		// 			round3: golfer1Scores[5].round3,
+		// 			round4: golfer1Scores[5].round4,
+		// 			total: golfer1Scores[5].total
+		// 		}
+		// 	}}, { upsert: true }, function(error) {
+				
+		// 	});
+		// 	// console.log(JSON.stringify(golfer1Scores, null, 2));
+		// });
+
+		models.Scorecard.find({golfer:golfer1}, (err, golfer1Scores) => {
+			console.log("golfer 2 Scores: ", golfer1Scores);
+			console.log('Golfer 2 Round 1: ', golfer1Scores[0].round1);
 			models.Entry.update({},{ $set: {
 				golfer1:{
 					name: golfer1Scores[0].golfer,
@@ -244,12 +319,12 @@ app.get('/PGAleaderboard/update', (req, res) => {
 					round3: golfer1Scores[0].round3,
 					round4: golfer1Scores[0].round4,
 					total: golfer1Scores[0].total
-				}}}, { upsert: true }, function(error) {
+				}}}, function(error) {
 				
 			});
-			// console.log(JSON.stringify(golfer1Scores, null, 2));
+			// console.log(JSON.stringify(golfer2Scores, null, 2));
 		});
-
+		
 		models.Scorecard.find({golfer:golfer2}, (err, golfer2Scores) => {
 			console.log("golfer 2 Scores: ", golfer2Scores);
 			console.log('Golfer Round 2: ', golfer2Scores[0].round1);
