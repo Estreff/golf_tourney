@@ -48,19 +48,81 @@ $(function() {
 
 
         insertTeam({
+            // entryName: entryName,
+            // golfer1: golfer1,
+            // rank1: rank1,
+            // golfer2: golfer2,
+            // rank2: rank2,
+            // golfer3: golfer3,
+            // rank3: rank3,
+            // golfer4: golfer4,
+            // rank4: rank4,
+            // golfer5: golfer5,
+            // rank5: rank5,
+            // golfer6: golfer6,
+            // rank6: rank6
+
             entryName: entryName,
-            golfer1: golfer1,
-            rank1: rank1,
-            golfer2: golfer2,
-            rank2: rank2,
-            golfer3: golfer3,
-            rank3: rank3,
-            golfer4: golfer4,
-            rank4: rank4,
-            golfer5: golfer5,
-            rank5: rank5,
-            golfer6: golfer6,
-            rank6: rank6
+            golfer1: {
+                name: golfer1,
+                rank: rank1,
+                position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+                total: null,
+            },
+            golfer2: {
+                name: golfer2,
+                rank: rank2,
+                position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+                total: null,
+            },
+            golfer3: {
+                name: golfer3,
+                rank: rank3,
+                position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+                total: null,
+            },
+            golfer4: {
+                name: golfer4,
+                rank: rank4,
+                position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+                total: null,
+            },
+            golfer5: {
+                name: golfer5,
+                rank: rank5,
+                position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+                total: null,
+            },
+            golfer6: {
+                name: golfer6,
+                rank: rank6,
+                position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+                total: null
+            },
         });
 
 
@@ -78,33 +140,46 @@ $(function() {
         var entryID = $('#entryId').attr('data-id');
         console.log('Team ID: ', entryID);
         var golfer1 = $('#golfer1Id').data('name');
+        var rank1 = $('#rank1').data('rank');
         console.log('Golfer 1 Name: ', golfer1);
+        console.log('Golfer 1 Rank: ', rank1);
         var golfer2 = $('#golfer2Id').data('name');
+        var rank2 = $('#rank2').data('rank');
         console.log('Golfer 2 Name: ', golfer2);
         var golfer3 = $('#golfer3Id').data('name');
+        var rank3 = $('#rank3').data('rank');
         console.log('Golfer 3 Name: ', golfer3);
         var golfer4 = $('#golfer4Id').data('name');
+        var rank4 = $('#rank4').data('rank');
         console.log('Golfer 4 Name: ', golfer4);
         var golfer5 = $('#golfer5Id').data('name');
+        var rank5 = $('#rank5').data('rank');
         console.log('Golfer 5 Name: ', golfer5);
         var golfer6 = $('#golfer6Id').data('name');
+        var rank6 = $('#rank6').data('rank');
         console.log('Golfer 6 Name: ', golfer6);
 
         updateScores({
             entryID: entryID,
             golfer1: golfer1,
+            rank1: rank1,
             golfer2: golfer2,
+            rank2: rank2,
             golfer3: golfer3,
+            rank3: rank3,
             golfer4: golfer4,
+            rank4: rank4,
             golfer5: golfer5,
+            rank5: rank5,
             golfer6: golfer6,
+            rank6: rank6,
         });
 
 
         
         function updateScores(teamData) {
             $.post('/team/update', teamData).then(function() {
-                // window.location.href = '/team';
+                window.location.href = '/team';
             });
         }
     });

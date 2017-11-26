@@ -24,101 +24,99 @@
 		<tbody>	
 				<tr>
 					<td class="text-center">1 - 5</td>
-					<td class="text-center">{{golfer1Rank}}</td>
-					<td id="golfer1Id" data-name="{{golfer1}}">{{golfer1}}</td>
-					
-					<td class="text-center">{{#each Golfer1}}{{position}}{{/each}}</td>
-					
-					<td class="text-center">{{round1}}</td>
-					<td class="text-center">{{round2}}</td>
-					<td class="text-center">{{round3}}</td>
-					<td class="text-center">{{round4}}</td>
-					<td class="text-center">{{total}}</td>				
+					<td id="rank1" class="text-center" data-rank="{{golfer1.rank}}">{{golfer1.rank}}</td>
+					<td id="golfer1Id" data-name="{{golfer1.name}}">{{golfer1.name}}</td>
+					<td class="text-center">{{golfer1.position}}</td>					
+					<td class="text-center">{{golfer1.round1}}</td>
+					<td class="text-center">{{golfer1.round2}}</td>
+					<td class="text-center">{{golfer1.round3}}</td>
+					<td class="text-center">{{golfer1.round4}}</td>
+					<td class="text-center">{{golfer1.total}}</td>				
 					{{!-- <td class="text-center">				
-						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
-						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
-						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
+						<button class="btn btn-success save " value="Save Golfer" data-player="{{golfer1.name}}"><span class="fa fa-save"></span></button>
+						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{golfer1.name}}"><span class="fa fa-pencil"></span></button>
+						<button class="btn btn-danger" value="Delete Golfer" data-player="{{golfer1.name}}"><span class="fa fa-trash"></span></button>
 					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">6 - 10</td>
-					<td class="text-center">{{golfer2Rank}}</td>
-					<td id="golfer2Id" data-name="{{golfer2}}">{{golfer2}}</td>
-					<td class="text-center">{{position}}</td>
-					<td class="text-center">{{round1}}</td>
-					<td class="text-center">{{round2}}</td>
-					<td class="text-center">{{round3}}</td>
-					<td class="text-center">{{round4}}</td>
-					<td class="text-center">{{total}}</td>	
+					<td id="rank2" class="text-center">{{golfer2.rank}}</td>
+					<td id="golfer2Id" data-name="{{golfer2.name}}">{{golfer2.name}}</td>
+					<td class="text-center">{{golfer2.position}}</td>					
+					<td class="text-center">{{golfer2.round1}}</td>
+					<td class="text-center">{{golfer2.round2}}</td>
+					<td class="text-center">{{golfer2.round3}}</td>
+					<td class="text-center">{{golfer2.round4}}</td>
+					<td class="text-center">{{golfer2.total}}</td>				
 					{{!-- <td class="text-center">				
-						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
-						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
-						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
+						<button class="btn btn-success save " value="Save Golfer" data-player="{{golfer2.name}}"><span class="fa fa-save"></span></button>
+						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{golfer2.name}}"><span class="fa fa-pencil"></span></button>
+						<button class="btn btn-danger" value="Delete Golfer" data-player="{{golfer2.name}}"><span class="fa fa-trash"></span></button>
 					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">11 - 20</td>
-					<td class="text-center">{{golfer3Rank}}</td>
-					<td id="golfer3Id" data-name="{{golfer3}}">{{golfer3}}</td>
-					<td class="text-center">{{position}}</td>
-					<td class="text-center">{{round1}}</td>
-					<td class="text-center">{{round2}}</td>
-					<td class="text-center">{{round3}}</td>
-					<td class="text-center">{{round4}}</td>
-					<td class="text-center">{{total}}</td>	
+					<td id="rank3" class="text-center">{{golfer3.rank}}</td>
+					<td id="golfer3Id" data-name="{{golfer3.name}}">{{golfer3.name}}</td>
+					<td class="text-center">{{golfer3.position}}</td>
+					<td class="text-center">{{golfer3.round1}}</td>
+					<td class="text-center">{{golfer3.round2}}</td>
+					<td class="text-center">{{golfer3.round3}}</td>
+					<td class="text-center">{{golfer3.round4}}</td>
+					<td class="text-center">{{golfer3.total}}</td>				
 					{{!-- <td class="text-center">				
-						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
-						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
-						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>	 --}}
+						<button class="btn btn-success save " value="Save Golfer" data-player="{{golfer3.name}}"><span class="fa fa-save"></span></button>
+						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{golfer3.name}}"><span class="fa fa-pencil"></span></button>
+						<button class="btn btn-danger" value="Delete Golfer" data-player="{{golfer3.name}}"><span class="fa fa-trash"></span></button>
+					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">11 - 20</td>
-					<td class="text-center">{{golfer4Rank}}</td>
-					<td id="golfer4Id" data-name="{{golfer4}}">{{golfer4}}</td>
-					<td class="text-center">{{position}}</td>
-					<td class="text-center">{{round1}}</td>
-					<td class="text-center">{{round2}}</td>
-					<td class="text-center">{{round3}}</td>
-					<td class="text-center">{{round4}}</td>
-					<td class="text-center">{{total}}</td>	
+					<td id="rank4" class="text-center">{{golfer4.rank}}</td>
+					<td id="golfer4Id" data-name="{{golfer4.name}}">{{golfer4.name}}</td>
+					<td class="text-center">{{golfer4.position}}</td>					
+					<td class="text-center">{{golfer4.round1}}</td>
+					<td class="text-center">{{golfer4.round2}}</td>
+					<td class="text-center">{{golfer4.round3}}</td>
+					<td class="text-center">{{golfer4.round4}}</td>
+					<td class="text-center">{{golfer4.total}}</td>				
 					{{!-- <td class="text-center">				
-						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
-						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
-						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
+						<button class="btn btn-success save " value="Save Golfer" data-player="{{golfer4.name}}"><span class="fa fa-save"></span></button>
+						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{golfer4.name}}"><span class="fa fa-pencil"></span></button>
+						<button class="btn btn-danger" value="Delete Golfer" data-player="{{golfer4.name}}"><span class="fa fa-trash"></span></button>
 					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">21 - 50</td>
-					<td class="text-center">{{golfer5Rank}}</td>
-					<td id="golfer5Id" data-name="{{golfer5}}">{{golfer5}}</td>
-					<td class="text-center">{{position}}</td>
-					<td class="text-center">{{round1}}</td>
-					<td class="text-center">{{round2}}</td>
-					<td class="text-center">{{round3}}</td>
-					<td class="text-center">{{round4}}</td>
-					<td class="text-center">{{total}}</td>	
+					<td id="rank5" class="text-center">{{golfer5.rank}}</td>
+					<td id="golfer5Id" data-name="{{golfer5.name}}">{{golfer5.name}}</td>
+					<td class="text-center">{{golfer5.position}}</td>
+					<td class="text-center">{{golfer5.round1}}</td>
+					<td class="text-center">{{golfer5.round2}}</td>
+					<td class="text-center">{{golfer5.round3}}</td>
+					<td class="text-center">{{golfer5.round4}}</td>
+					<td class="text-center">{{golfer5.total}}</td>				
 					{{!-- <td class="text-center">				
-						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
-						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
-						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
+						<button class="btn btn-success save " value="Save Golfer" data-player="{{golfer5.name}}"><span class="fa fa-save"></span></button>
+						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{golfer5.name}}"><span class="fa fa-pencil"></span></button>
+						<button class="btn btn-danger" value="Delete Golfer" data-player="{{golfer5.name}}"><span class="fa fa-trash"></span></button>
 					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">51 +</td>
-					<td class="text-center">{{golfer6Rank}}</td>
-					<td id="golfer6Id" data-name="{{golfer6}}">{{golfer6}}</td>
-					<td class="text-center">{{position}}</td>
-					<td class="text-center">{{round1}}</td>
-					<td class="text-center">{{round2}}</td>
-					<td class="text-center">{{round3}}</td>
-					<td class="text-center">{{round4}}</td>
-					<td class="text-center">{{total}}</td>	
+					<td id="rank6" class="text-center">{{golfer6.rank}}</td>
+					<td id="golfer6Id" data-name="{{golfer6.name}}">{{golfer6.name}}</td>
+					<td class="text-center">{{golfer6.position}}</td>			
+					<td class="text-center">{{golfer6.round1}}</td>
+					<td class="text-center">{{golfer6.round2}}</td>
+					<td class="text-center">{{golfer6.round3}}</td>
+					<td class="text-center">{{golfer6.round4}}</td>
+					<td class="text-center">{{golfer6.total}}</td>				
 					{{!-- <td class="text-center">				
-						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
-						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
-						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>		 --}}
+						<button class="btn btn-success save " value="Save Golfer" data-player="{{golfer6.name}}"><span class="fa fa-save"></span></button>
+						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{golfer6.name}}"><span class="fa fa-pencil"></span></button>
+						<button class="btn btn-danger" value="Delete Golfer" data-player="{{golfer6.name}}"><span class="fa fa-trash"></span></button>
+					</td> --}}
 				</tr>
 				<tr class="bg-warning">
 					<td></td>

@@ -161,6 +161,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
 				console.log(JSON.stringify(data, null, 2));
 				models.Scorecard.create(data)
 
+	
 			.then(function(dbScorecard) {
 				
 				res.redirect('/PGAleaderboard');
@@ -192,14 +193,9 @@ app.get('/PGAleaderboard/update', (req, res) => {
     });
 	
     app.get('/team', (req, res) => {
-		// models.Scorecard.find({}, (err, leaderboard) => {
-		// 	console.log(JSON.stringify(leaderboard, null, 2));
-		// });
-
 		models.Entry.find({}, (err, team) => {
 			console.log(JSON.stringify(team, null, "\t"));
-			
-			
+						
 			var hbsObject = {
 				golfers: team,
 			};    
@@ -229,56 +225,212 @@ app.get('/PGAleaderboard/update', (req, res) => {
 		golfer6 = req.body.golfer6;
 
 		models.Scorecard.find({golfer:golfer1}, (err, golfer1Scores) => {
+			console.log("golfer 1 Scores: ", golfer1Scores);
+			console.log('Golfer Round 1: ', golfer1Scores[0].round1);
+			models.Entry.update({},{ $set: {
+				golfer1:{
+					name: golfer1Scores[0].golfer,
+					position: golfer1Scores[0].position,
+					round1: golfer1Scores[0].round1,
+					round2: golfer1Scores[0].round2,
+					round3: golfer1Scores[0].round3,
+					round4: golfer1Scores[0].round4,
+					total: golfer1Scores[0].total
+				}}}, { upsert: true }, function(error) {
+				
+			});
 			// console.log(JSON.stringify(golfer1Scores, null, 2));
-			models.Scorecard.find({golfer:golfer2}, (err, golfer2Scores) => {
-				// console.log(JSON.stringify(golfer2Scores, null, 2));
-				models.Scorecard.find({golfer:golfer3}, (err, golfer3Scores) => {
-					// console.log(JSON.stringify(golfer3Scores, null, 2));
-					models.Scorecard.find({golfer:golfer4}, (err, golfer4Scores) => {
-						// console.log(JSON.stringify(golfer4Scores, null, 2));
-						models.Scorecard.find({golfer:golfer5}, (err, golfer5Scores) => {
-							// console.log(JSON.stringify(golfer5Scores, null, 2));
-							models.Scorecard.find({golfer:golfer6}, (err, golfer6Scores) => {
-								// console.log(JSON.stringify(golfer6Scores, null, 2));
-									var hbsGolfers = {
-										golfer1: golfer1Scores,
-										golfer2: golfer2Scores,
-										golfer3: golfer3Scores,
-										golfer4: golfer4Scores,
-										golfer5: golfer5Scores,
-										golfer6: golfer6Scores,
-									};    
-									console.log('Golfer Scores: ', hbsGolfers);
-									// res.render('test', hbsGolfers);  
-							});		
-						});
-					});		
-				});
-			});		
 		});
+
+		models.Scorecard.find({golfer:golfer2}, (err, golfer2Scores) => {
+			console.log("golfer 2 Scores: ", golfer2Scores);
+			console.log('Golfer Round 2: ', golfer2Scores[0].round1);
+			models.Entry.update({},{ $set: {
+				golfer2:{
+					name: golfer2Scores[0].golfer,
+					position: golfer2Scores[0].position,
+					round1: golfer2Scores[0].round1,
+					round2: golfer2Scores[0].round2,
+					round3: golfer2Scores[0].round3,
+					round4: golfer2Scores[0].round4,
+					total: golfer2Scores[0].total
+				}}}, function(error) {
+				
+			});
+			// console.log(JSON.stringify(golfer2Scores, null, 2));
+		});
+
+		models.Scorecard.find({golfer:golfer3}, (err, golfer3Scores) => {
+			console.log("golfer 3 Scores: ", golfer3Scores);
+			console.log('Golfer Round 3: ', golfer3Scores[0].round1);
+			models.Entry.update({},{ $set: {
+				golfer3:{
+					name: golfer3Scores[0].golfer,
+					position: golfer3Scores[0].position,
+					round1: golfer3Scores[0].round1,
+					round2: golfer3Scores[0].round2,
+					round3: golfer3Scores[0].round3,
+					round4: golfer3Scores[0].round4,
+					total: golfer3Scores[0].total
+				}}}, function(error) {
+				
+			});
+			// console.log(JSON.stringify(golfer3Scores, null, 2));
+		});
+			
+		models.Scorecard.find({golfer:golfer4}, (err, golfer4Scores) => {
+			console.log("golfer 4 Scores: ", golfer4Scores);
+			console.log('Golfer Round 4: ', golfer4Scores[0].round1);
+			models.Entry.update({},{ $set: {
+				golfer4:{
+					name: golfer4Scores[0].golfer,
+					position: golfer4Scores[0].position,
+					round1: golfer4Scores[0].round1,
+					round2: golfer4Scores[0].round2,
+					round3: golfer4Scores[0].round3,
+					round4: golfer4Scores[0].round4,
+					total: golfer4Scores[0].total
+				}}}, function(error) {
+				
+			});
+			// console.log(JSON.stringify(golfer4Scores, null, 2));
+		});
+			
+		models.Scorecard.find({golfer:golfer5}, (err, golfer5Scores) => {
+			if(err) {
+				throw(err);
+				console.log("Player is not playing this event!!");
+			} else {
+				console.log("golfer 5 Scores: ", golfer5Scores);
+				console.log('Golfer Round 5: ', golfer5Scores[0].round1);
+				models.Entry.update({},{ $set: {
+					golfer5:{
+						name: golfer5Scores[0].golfer,
+						position: golfer5Scores[0].position,
+						round1: golfer5Scores[0].round1,
+						round2: golfer5Scores[0].round2,
+						round3: golfer5Scores[0].round3,
+						round4: golfer5Scores[0].round4,
+						total: golfer5Scores[0].total
+					}}}, function(error) {
+					
+				});
+			}
+			// console.log(JSON.stringify(golfer5Scores, null, 2));
+		});
+		
+		models.Scorecard.find({golfer:golfer6}, (err, golfer6Scores) => {
+			console.log("golfer 6 Scores: ", golfer6Scores);
+			console.log('Golfer Round 6: ', golfer6Scores[0].round1);
+			models.Entry.update({},{ $set: {
+				golfer6:{
+					name: golfer6Scores[0].golfer,
+					position: golfer6Scores[0].position,
+					round1: golfer6Scores[0].round1,
+					round2: golfer6Scores[0].round2,
+					round3: golfer6Scores[0].round3,
+					round4: golfer6Scores[0].round4,
+					total: golfer6Scores[0].total
+				}}}, function(error) {
+				
+			});
+			// console.log(JSON.stringify(golfer6Scores, null, 2));					
+		});
+
+		models.Entry.find({}, (err, team) => {
+			console.log(JSON.stringify(team, null, "\t"));
+						
+			var hbsObject = {
+				golfers: team,
+			};    
+			// console.log(hbsObject);
+			res.render('teams', hbsObject);    
+		});  
+
+
 	});
 
 	
     app.post('/team/new', (req, res) => {
 		console.log('Entire Body: ', req.body);
 
-		console.log('Player 1: ', req.body.golfer1);
-		console.log('Player 1 Rank: ', req.body.rank1);
+		console.log('Golfer 1: ', req.body.golfer1.name);
+		console.log('Golfer 1 Rank: ', req.body.golfer1.rank);
 
-        var team = new models.Entry ({
+        var team = new models.Entry({
 			entryName: req.body.entryName,
-			golfer1: req.body.golfer1,
-			golfer1Rank: req.body.rank1,
-            golfer2: req.body.golfer2,
-			golfer2Rank: req.body.rank2,
-            golfer3: req.body.golfer3,
-			golfer3Rank: req.body.rank3,
-            golfer4: req.body.golfer4,
-			golfer4Rank: req.body.rank4,
-            golfer5: req.body.golfer5,
-			golfer5Rank: req.body.rank5,
-            golfer6: req.body.golfer6,
-			golfer6Rank: req.body.rank6
+			// golfer1: req.body.golfer1,
+			// golfer1Rank: req.body.rank1,
+            // golfer2: req.body.golfer2,
+			// golfer2Rank: req.body.rank2,
+            // golfer3: req.body.golfer3,
+			// golfer3Rank: req.body.rank3,
+            // golfer4: req.body.golfer4,
+			// golfer4Rank: req.body.rank4,
+            // golfer5: req.body.golfer5,
+			// golfer5Rank: req.body.rank5,
+            // golfer6: req.body.golfer6,
+			// golfer6Rank: req.body.rank6
+			golfer1: {
+				name: req.body.golfer1.name,
+				rank: req.body.golfer1.rank,
+				position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+				total: null
+			},
+			golfer2: {
+				name: req.body.golfer2.name,
+				rank: req.body.golfer2.rank,
+				position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+				total: null
+			},
+			golfer3: {
+				name: req.body.golfer3.name,
+				rank: req.body.golfer3.rank,
+				position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+				total: null
+			},
+			golfer4: {
+				name: req.body.golfer4.name,
+				rank: req.body.golfer4.rank,
+				position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+				total: null
+			},
+			golfer5: {
+				name: req.body.golfer5.name,
+				rank: req.body.golfer5.rank,
+				position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+				total: null
+			},
+			golfer6: {
+				name: req.body.golfer6.name,
+				rank: req.body.golfer6.rank,
+				position: null,
+                round1: null,
+                round2: null,
+                round3: null,
+                round4: null,
+				total: null
+			},
         });
 		
 		team.save()
