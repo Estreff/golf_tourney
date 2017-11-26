@@ -39,6 +39,14 @@
     border-bottom: 1px solid #868e96;
 }
 
+.form-control {
+    margin-bottom: 20px;
+}
+
+.custom-select {
+    margin-bottom: 20px;
+}
+
 .entry {
     margin: 40px 40px;
     border: 2px solid gray;

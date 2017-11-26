@@ -1,8 +1,9 @@
 {{#each golfers}}
 <div class="entry">
 	<div>
-		<h3 class="entryName" style="padding:20px; background-color: #868e96; color:#fff; margin: 0px;">{{entryName}}</h3>
-		
+		<h3 class="entryName" style="padding:20px; background-color: #868e96; color:#fff; margin: 0px;">{{entryName}}
+		<button style="float: right;" class="deleteEntry btn btn-danger" value="Delete Entry" data-entryID="{{_id}}" data-toggle="modal" data-target="#deleteEntryModal"><span class="fa fa-trash"></span> Delete Entry</button>
+		</h3>
 	</div>
 	<table class="table table-striped table-bordered table-responsive-sm" id="entryId" data-id="{{_id}}">
 		<thead class="table-info">
@@ -16,7 +17,7 @@
 				<th class="text-center">R3</th>
 				<th class="text-center">R4</th>
 				<th class="text-center">Total</th>
-				<th class="text-center">Actions</th>
+				{{!-- <th class="text-center">Actions</th> --}}
 
 			</tr>
 		</thead>
@@ -33,11 +34,11 @@
 					<td class="text-center">{{round3}}</td>
 					<td class="text-center">{{round4}}</td>
 					<td class="text-center">{{total}}</td>				
-					<td class="text-center">				
+					{{!-- <td class="text-center">				
 						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
 						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
 						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>
+					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">6 - 10</td>
@@ -49,11 +50,11 @@
 					<td class="text-center">{{round3}}</td>
 					<td class="text-center">{{round4}}</td>
 					<td class="text-center">{{total}}</td>	
-					<td class="text-center">				
+					{{!-- <td class="text-center">				
 						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
 						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
 						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>
+					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">11 - 20</td>
@@ -65,11 +66,11 @@
 					<td class="text-center">{{round3}}</td>
 					<td class="text-center">{{round4}}</td>
 					<td class="text-center">{{total}}</td>	
-					<td class="text-center">				
+					{{!-- <td class="text-center">				
 						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
 						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
 						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>	
+					</td>	 --}}
 				</tr>
 				<tr>
 					<td class="text-center">11 - 20</td>
@@ -81,11 +82,11 @@
 					<td class="text-center">{{round3}}</td>
 					<td class="text-center">{{round4}}</td>
 					<td class="text-center">{{total}}</td>	
-					<td class="text-center">				
+					{{!-- <td class="text-center">				
 						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
 						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
 						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>
+					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">21 - 50</td>
@@ -97,11 +98,11 @@
 					<td class="text-center">{{round3}}</td>
 					<td class="text-center">{{round4}}</td>
 					<td class="text-center">{{total}}</td>	
-					<td class="text-center">				
+					{{!-- <td class="text-center">				
 						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
 						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
 						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>
+					</td> --}}
 				</tr>
 				<tr>
 					<td class="text-center">51 +</td>
@@ -113,11 +114,11 @@
 					<td class="text-center">{{round3}}</td>
 					<td class="text-center">{{round4}}</td>
 					<td class="text-center">{{total}}</td>	
-					<td class="text-center">				
+					{{!-- <td class="text-center">				
 						<button class="btn btn-success save " value="Save Golfer" data-player="{{name}}"><span class="fa fa-save"></span></button>
 						<button class="btn btn-warning edit" value="Edit Golfer" data-player="{{name}}"><span class="fa fa-pencil"></span></button>
 						<button class="btn btn-danger" value="Delete Golfer" data-player="{{name}}"><span class="fa fa-trash"></span></button>
-					</td>		
+					</td>		 --}}
 				</tr>
 				<tr class="bg-warning">
 					<td></td>
@@ -129,10 +130,27 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td class="text-center"></td>		
+					{{!-- <td class="text-center"></td>		 --}}
 				</tr>
 		</tbody>
 
 	</table>
 </div>
 {{/each}}
+<!-- Delete Modal -->
+	<div class="modal" id="deleteEntryModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title alert alert-danger text-center col-12"><span class="fa fa-list"></span><b> Delete Entry</b></h3>
+				</div>
+				<div class="modal-body">
+					<h4 class="text-center"><span style="color:red; font-weight:bold;">'Delete Entry'</span><br/>will be remove this Entry from the<br/><b>Major's Pool</b></h4>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success" id="deleteEntry" data-dismiss="modal"><b>Delete Entry</b></button>
+					<button type="button" class="btn btn-danger" id="deleteCancel" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>  

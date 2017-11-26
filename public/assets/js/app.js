@@ -1,7 +1,5 @@
 
 $(function() {
-
-    
     
     $('#scrapeOWGR').click(function() {
         console.log('OWGR Update Button Clicked!!!!');
@@ -110,6 +108,35 @@ $(function() {
             });
         }
     });
+    
+
+    $(document).on('click', '.deleteEntry', function() {
+        console.log('Delete Verification Clicked');
+        var objectID = $(this).attr('data-entryID');
+        console.log('Company ID: ', objectID);
+
+        $('#deleteEntryModal').data('id', objectID); 
+        console.log($('#deleteEntryModal').data('id'));  
+    });
+
+    $(document).on('click', '#deleteEntry', function(event) {
+        event.preventDefault();
+        console.log('Delete Entry button clicked');
+        var entryID = $('#deleteEntryModal').data('id');
+        console.log(entryID)
+        var id = {id: entryID};
+        console.log('Delete Company ID: ', id);
+
+        deleteEntry(id);
+
+        function deleteEntry(MongoID) {
+            $.post('/entry/delete/', MongoID).then(function() {
+                window.location.href = '/team';
+    
+            });
+        }
+    });
+
     
 });
 

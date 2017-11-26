@@ -199,6 +199,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
 		models.Entry.find({}, (err, team) => {
 			console.log(JSON.stringify(team, null, "\t"));
 			
+			
 			var hbsObject = {
 				golfers: team,
 			};    
@@ -207,44 +208,53 @@ app.get('/PGAleaderboard/update', (req, res) => {
 		});  
 	});
 
-	app.post('/team/update', (req, res) => {
+	var entryID;
+	var golfer1;
+	var golfer2;
+	var golfer3;
+	var golfer4;
+	var golfer5;
+	var golfer6;
 
-		var golfer1 = req.body.golfer1;
-		console.log('Golfer 1 Update', golfer1);
-		var golfer2 = req.body.golfer2;
-		var golfer3 = req.body.golfer3;
-		var golfer4 = req.body.golfer4;
-		var golfer5 = req.body.golfer5;
-		var golfer6 = req.body.golfer6;
+	app.post('/team/update', (req, res) => {
+		entryID = req.body.entryID;
+		console.log('Entry Object ID: ', entryID);
+
+		
+		golfer1 = req.body.golfer1;
+		golfer2 = req.body.golfer2;
+		golfer3 = req.body.golfer3;
+		golfer4 = req.body.golfer4;
+		golfer5 = req.body.golfer5;
+		golfer6 = req.body.golfer6;
 
 		models.Scorecard.find({golfer:golfer1}, (err, golfer1Scores) => {
-			console.log(JSON.stringify(golfer1Scores, null, 2));
-			var hbsGolfer1 = {
-				golfer1: golfer1Scores,
-			};    
-			console.log('Golfer1: ', hbsGolfer1);
-			res.render('teams', hbsGolfer1);  
-
-		});
-
-		models.Scorecard.find({golfer:golfer2}, (err, golfer2Scores) => {
-			console.log(JSON.stringify(golfer2Scores, null, 2));
-		});
-
-		models.Scorecard.find({golfer:golfer3}, (err, golfer3Scores) => {
-			console.log(JSON.stringify(golfer3Scores, null, 2));
-		});
-
-		models.Scorecard.find({golfer:golfer4}, (err, golfer4Scores) => {
-			console.log(JSON.stringify(golfer4Scores, null, 2));
-		});
-
-		models.Scorecard.find({golfer:golfer5}, (err, golfer5Scores) => {
-			console.log(JSON.stringify(golfer5Scores, null, 2));
-		});
-
-		models.Scorecard.find({golfer:golfer6}, (err, golfer6Scores) => {
-			console.log(JSON.stringify(golfer6Scores, null, 2));
+			// console.log(JSON.stringify(golfer1Scores, null, 2));
+			models.Scorecard.find({golfer:golfer2}, (err, golfer2Scores) => {
+				// console.log(JSON.stringify(golfer2Scores, null, 2));
+				models.Scorecard.find({golfer:golfer3}, (err, golfer3Scores) => {
+					// console.log(JSON.stringify(golfer3Scores, null, 2));
+					models.Scorecard.find({golfer:golfer4}, (err, golfer4Scores) => {
+						// console.log(JSON.stringify(golfer4Scores, null, 2));
+						models.Scorecard.find({golfer:golfer5}, (err, golfer5Scores) => {
+							// console.log(JSON.stringify(golfer5Scores, null, 2));
+							models.Scorecard.find({golfer:golfer6}, (err, golfer6Scores) => {
+								// console.log(JSON.stringify(golfer6Scores, null, 2));
+									var hbsGolfers = {
+										golfer1: golfer1Scores,
+										golfer2: golfer2Scores,
+										golfer3: golfer3Scores,
+										golfer4: golfer4Scores,
+										golfer5: golfer5Scores,
+										golfer6: golfer6Scores,
+									};    
+									console.log('Golfer Scores: ', hbsGolfers);
+									// res.render('test', hbsGolfers);  
+							});		
+						});
+					});		
+				});
+			});		
 		});
 	});
 
@@ -280,6 +290,19 @@ app.get('/PGAleaderboard/update', (req, res) => {
 	
 	app.get('/*', (req, res) => {
 		res.redirect('/PGAleaderboard');
+	});
+
+	app.post('/entry/delete/', function(req, res) {
+		console.log('Delete Object ID: ', req.body.id);
+		models.Entry.findByIdAndRemove(req.body.id, (err, entry) => {  
+			// We'll create a simple object to send back with a message and the id of the document that was removed
+			// You can really do this however you want, though.
+			let response = {
+				message: "Entry successfully deleted",
+				id: req.body.id
+			};
+			res.status(200).send(response);
+		});
 	});
     
 	app.listen(PORT, () => {
