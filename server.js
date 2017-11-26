@@ -204,32 +204,40 @@ app.get('/PGAleaderboard/update', (req, res) => {
 		});  
 	});
 
-	var entryID;
-	var golfer1;
-	var golfer2;
-	var golfer3;
-	var golfer4;
-	var golfer5;
-	var golfer6;
-
 	app.post('/team/update', (req, res) => {
-		entryID = req.body.entryID;
+		var entryID = req.body.entryID;
 		console.log('Entry Object ID: ', entryID);
 
 		
-		golfer1 = req.body.golfer1;
-		golfer2 = req.body.golfer2;
-		golfer3 = req.body.golfer3;
-		golfer4 = req.body.golfer4;
-		golfer5 = req.body.golfer5;
-		golfer6 = req.body.golfer6;
+		var golfer1 = req.body.golfer1;
+		var rank1 = req.body.rank1;
+		var golfer2 = req.body.golfer2;
+		var rank2 = req.body.rank2;
+		var golfer3 = req.body.golfer3;
+		var rank3 = req.body.rank3;
+		var golfer4 = req.body.golfer4;
+		var rank4 = req.body.rank4;
+		var golfer5 = req.body.golfer5;
+		var rank5 = req.body.rank5;
+		var golfer6 = req.body.golfer6;
+		var rank6 = req.body.rank6;
 
-		models.Scorecard.find({golfer:golfer1}, (err, golfer1Scores) => {
+		console.log('Rank 1 outside find: ', rank1);
+		console.log('Rank 2 outside find: ', rank2);
+		console.log('Rank 3 outside find: ', rank3);
+		console.log('Rank 4 outside find: ', rank4);
+		console.log('Rank 5 outside find: ', rank5);
+		console.log('Rank 6 outside find: ', rank6);
+
+		models.Scorecard.find({golfer:golfer1
+		}, (err, golfer1Scores) => {
+			console.log('Rank 1 inside find: ', rank1);
 			console.log("golfer 1 Scores: ", golfer1Scores);
 			console.log('Golfer Round 1: ', golfer1Scores[0].round1);
 			models.Entry.update({},{ $set: {
 				golfer1:{
 					name: golfer1Scores[0].golfer,
+					rank: rank1,
 					position: golfer1Scores[0].position,
 					round1: golfer1Scores[0].round1,
 					round2: golfer1Scores[0].round2,
@@ -248,6 +256,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
 			models.Entry.update({},{ $set: {
 				golfer2:{
 					name: golfer2Scores[0].golfer,
+					rank: rank2,
 					position: golfer2Scores[0].position,
 					round1: golfer2Scores[0].round1,
 					round2: golfer2Scores[0].round2,
@@ -266,6 +275,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
 			models.Entry.update({},{ $set: {
 				golfer3:{
 					name: golfer3Scores[0].golfer,
+					rank: rank3,
 					position: golfer3Scores[0].position,
 					round1: golfer3Scores[0].round1,
 					round2: golfer3Scores[0].round2,
@@ -284,6 +294,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
 			models.Entry.update({},{ $set: {
 				golfer4:{
 					name: golfer4Scores[0].golfer,
+					rank: rank4,
 					position: golfer4Scores[0].position,
 					round1: golfer4Scores[0].round1,
 					round2: golfer4Scores[0].round2,
@@ -297,15 +308,12 @@ app.get('/PGAleaderboard/update', (req, res) => {
 		});
 			
 		models.Scorecard.find({golfer:golfer5}, (err, golfer5Scores) => {
-			if(err) {
-				throw(err);
-				console.log("Player is not playing this event!!");
-			} else {
 				console.log("golfer 5 Scores: ", golfer5Scores);
 				console.log('Golfer Round 5: ', golfer5Scores[0].round1);
 				models.Entry.update({},{ $set: {
 					golfer5:{
 						name: golfer5Scores[0].golfer,
+						rank: rank5,
 						position: golfer5Scores[0].position,
 						round1: golfer5Scores[0].round1,
 						round2: golfer5Scores[0].round2,
@@ -315,16 +323,18 @@ app.get('/PGAleaderboard/update', (req, res) => {
 					}}}, function(error) {
 					
 				});
-			}
+			
 			// console.log(JSON.stringify(golfer5Scores, null, 2));
 		});
 		
 		models.Scorecard.find({golfer:golfer6}, (err, golfer6Scores) => {
+			console.log('Golfer 6 Rank inside; ', rank6);
 			console.log("golfer 6 Scores: ", golfer6Scores);
 			console.log('Golfer Round 6: ', golfer6Scores[0].round1);
 			models.Entry.update({},{ $set: {
 				golfer6:{
 					name: golfer6Scores[0].golfer,
+					rank: rank6,
 					position: golfer6Scores[0].position,
 					round1: golfer6Scores[0].round1,
 					round2: golfer6Scores[0].round2,
