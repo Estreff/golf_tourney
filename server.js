@@ -502,18 +502,6 @@ app.get('/PGAleaderboard/update', (req, res) => {
 
         var team = new models.Entry({
 			entryName: req.body.entryName,
-			// golfer1: req.body.golfer1,
-			// golfer1Rank: req.body.rank1,
-            // golfer2: req.body.golfer2,
-			// golfer2Rank: req.body.rank2,
-            // golfer3: req.body.golfer3,
-			// golfer3Rank: req.body.rank3,
-            // golfer4: req.body.golfer4,
-			// golfer4Rank: req.body.rank4,
-            // golfer5: req.body.golfer5,
-			// golfer5Rank: req.body.rank5,
-            // golfer6: req.body.golfer6,
-			// golfer6Rank: req.body.rank6
 			golfer1: {
 				name: req.body.golfer1.name,
 				rank: req.body.golfer1.rank,
