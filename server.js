@@ -584,7 +584,7 @@ app.get('/PGAleaderboard/update', (req, res) => {
     });
 	
 	app.get('/*', (req, res) => {
-		res.redirect('/PGAleaderboard');
+		res.redirect('/team');
 	});
 
 	app.post('/entry/delete/', function(req, res) {

@@ -18,7 +18,7 @@ This is a PGA Majors pool to automaatically calculate scoring
     <li>Create Team</li>
         <ul>
             <li>Select Players based on current OWGR</li>
-            <li>If player is not in field in will display as DNP when you slect Update Scores</li>
+            <li>If player is not in field in will display as DNP when you select Update Scores</li>
         </ul>        
 </ul>
 
