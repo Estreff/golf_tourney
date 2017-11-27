@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.static("public"));
 const models = require('./models'); 
-
+M
 const databaseUri = 'mongodb://localhost/majors';
 
 if(process.env.MONGODB_URI) {
@@ -39,7 +39,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-	res.redirect('/PGAleaderboard');
+	res.redirect('/team');
 });
 
 app.get('/owgr', function(req, res) {
