@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.static("public"));
 const models = require('./models'); 
-M
+
 const databaseUri = 'mongodb://localhost/majors';
 
 if(process.env.MONGODB_URI) {
